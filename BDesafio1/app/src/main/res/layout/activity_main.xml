@@ -11,6 +11,7 @@
         android:layout_marginTop="30dp"
         android:textSize="30sp"
         android:layout_below="@+id/btnDesafio"
+        android:gravity="center"
         android:id="@+id/tviDesafio"/>
 
     <Button

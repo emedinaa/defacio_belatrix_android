@@ -11,7 +11,11 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/*
+    Desafío 1
+    Referencia: http://developer.android.com/reference/android/os/AsyncTask.html
 
+ */
 public class MainActivity extends ActionBarActivity {
 
     private final String WEB_SEVICE_URL = "http://developer.android.com/index.html";
@@ -33,10 +37,16 @@ public class MainActivity extends ActionBarActivity {
         btnDesafio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callRestService();
+                //callRestService();
+                callRestServiceOk();
             }
         });
     }
+
+    /**
+     * output: FATAL EXCEPTION: AsyncTask #1
+     java.lang.RuntimeException: An error occured while executing doInBackground()
+     */
     private void callRestService()
     {
         AsyncTask call = new AsyncTask<Object,Integer,String>() {
@@ -47,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
                 RestClient client= new RestClient();
                 String result = client.executeRequest(WEB_SEVICE_URL);
                 textView.setText("Web Service call ended successfully");*/
-                textView.setText("");git sgit
+                textView.setText("");
                 for (int i = 0; i < 5; i++) {
                     try {
                         Thread.sleep(DEFAULT_DELAY);
@@ -67,17 +77,21 @@ public class MainActivity extends ActionBarActivity {
         AsyncTask call = new AsyncTask<Object,Integer,String>() {
             @Override
             protected String doInBackground(Object... params) {
-                /*RestClient client= new RestClient();
-                String result = client.executeRequest(WEB_SEVICE_URL);
-                textView.setText("Web Service call ended successfully");*/
-
-                return "";
+                for (int i = 0; i < 5; i++) {
+                    try {
+                        Thread.sleep(DEFAULT_DELAY);
+                    } catch (InterruptedException e) {
+                        Thread.interrupted();
+                    }
+                }
+                String result="Web Service call ended successfully";
+                return result;
             }
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                textView.setText("");
+                textView.setText("...");
             }
 
             @Override
