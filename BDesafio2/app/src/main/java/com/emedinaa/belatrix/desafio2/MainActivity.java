@@ -68,15 +68,19 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /*
-     Con este método se lográ mostrar la imagen cargada , enviando como parámetro adicional el ImageView
+     Con este método se lográ mostrar la imagen cargada , enviando como parámetro adicional el ImageView sin el Progress
      */
     private void loadImageWithoutProgress() {
         mProgressBar.setVisibility(View.VISIBLE);
         RestClient.getInstance(this).getImageFromServerOk(IMAGE_URL, mImageView);
         mProgressBar.setVisibility(View.GONE);
     }
-    private void loadImageProgress()
-    {
+
+    /*
+     Con este método se lográ mostrar la imagen cargada , enviando como parámetro adicional el ImageView y un listener para que escuche cuando termine este proceso.
+     Adicional muestra el Progress al inicio y desaparece cuando termina de cargar
+     */
+    private void loadImageProgress() {
         mProgressBar.setVisibility(View.VISIBLE);
         RestClient.getInstance(this).getImageFromServerProgress(IMAGE_URL, mImageView,onImageRequest);
     }
