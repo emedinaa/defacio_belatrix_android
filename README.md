@@ -1,12 +1,18 @@
 # desafio_belatrix_android
 Reto Belatrix Android  - http://www.belatrixsf.com/index.php/desafio-mobile-expert
 
-# Desafío 2
+# Desafío 3
 
-¿Cual es el resultado al finalizar la ejecución del metodo onCreate? Argumente.
+Considerando la siguiente sección de código:
 
-Aclaraciones:
+...
+var userDefaults = NSUserDefaults.standardUserDefaults()
+var prefValue = userDefaults.stringForKey("prefKey")!
+printValue(prefValue)
+…
+func printValue(value: String) {
+println(value)
+}
+....
 
-- initializeUiComponents() inicializa las variables de instancia mProgressBar y mImageView
-- el metodo getImageFromServer() devuelve un objeto del tipo Drawable, no nulo.
-- el dispositivo dispone de una conexión a internet estable.
+reconoce algún bug en este código? cuál es? que ocasiona? y cuál es la manera correcta de corregirlo?
